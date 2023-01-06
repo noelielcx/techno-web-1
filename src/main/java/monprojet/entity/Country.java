@@ -1,5 +1,6 @@
 package monprojet.entity;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -23,4 +24,7 @@ public class Country {
     @Column(unique=true)
     @NonNull
     private String name;
+
+    @OneToMany(mappedBy = "country")
+    private List<City> city = new LinkedList<>();
 }
